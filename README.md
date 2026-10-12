@@ -71,3 +71,18 @@ Veriq suggests the gmail.com fix, checks the phone's line type and carrier, flag
 ## Support
 
 fredrickaffoh81@gmail.com
+
+## Python client
+
+```bash
+pip install git+https://github.com/freddyA1/Veriq-mcp
+```
+
+```python
+from veriq_client import Veriq
+v = Veriq()  # reads VERIQ_API_KEY
+v.email("jane@gmial.com")["agent_action"]   # "confirm_with_user" (typo for gmail.com)
+v.signup_risk(email="x@mailinator.com", ip="185.220.101.1")
+```
+
+Architecture: [ARCHITECTURE.md](ARCHITECTURE.md). Data handling: [PRIVACY.md](PRIVACY.md). Security: [SECURITY.md](SECURITY.md).
