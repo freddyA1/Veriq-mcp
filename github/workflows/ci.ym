@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Validate server.json is valid JSON
+        run: python -m json.tool server.json > /dev/null
+      - name: Unit tests
+        run: python -m unittest discover -p "test_*.py" -v
+      - name: Package builds
+        run: |
+          python -m pip install --quiet build
+          python -m build
+```
