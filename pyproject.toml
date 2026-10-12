@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veriq-client"
+version = "0.1.0"
+description = "Python client for Veriq: validate emails and phones, look up IPs and domains, score sign-up fraud risk."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+Homepage = "https://veriq-u2at.onrender.com"
+Repository = "https://github.com/freddyA1/Veriq-mcp"
+
+[tool.setuptools]
+py-modules = ["veriq_client"]
